@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import TodoTable from './components/TodoTable'
+import { Container } from '@mui/material'
+import { TodoProvider } from './context/TodoContext'
+import './App.css'
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <TodoProvider>
+      <Container maxWidth='md' sx={{ marginTop: 4 }}>
+        <div className='todo-title'>Todo List Application</div>
+        <TodoTable />
+      </Container>
+    </TodoProvider>
+  )
 }
 
-export default App;
+export default App
